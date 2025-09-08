@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<VBox prefHeight="728.0" prefWidth="708.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.mfirash.PrimaryController">
+   <MenuBar>
+     <menus>
+         <Menu fx:id="file" mnemonicParsing="false" text="File">
+           <items>
+             <MenuItem fx:id="savebook" mnemonicParsing="false" onAction="#savebook" text="Save bookmarks" />
+               <MenuItem fx:id="book" mnemonicParsing="false" onAction="#book" text="Bookmark" />
+               <MenuItem fx:id="gethtml" mnemonicParsing="false" onAction="#gethtml" text="Get HTML" />
+               <MenuItem fx:id="savehtml" mnemonicParsing="false" onAction="#savehtml" text="Save HTML" />
+           </items>
+         </Menu>
+       <Menu fx:id="help" mnemonicParsing="false" text="Help">
+         <items>
+           <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+         </items>
+       </Menu>
+     </menus>
+   </MenuBar>
+    <HBox spacing="5" styleClass="top-bar">
+    <Button fx:id="markpage" mnemonicParsing="false" onAction="#markpage" text="★">
+         <font>
+            <Font name="Chiller" size="12.0" />
+         </font>
+      </Button>
+      <HBox prefHeight="38.0" prefWidth="78.0">
+         <children>
+              <Button fx:id="b" minWidth="42.0" onAction="#behind" prefHeight="38.0" styleClass="nav-button" text="&lt;" />
+              <Button fx:id="f" minWidth="42.0" onAction="#foward" prefHeight="38.0" styleClass="nav-button" text="&gt;" />
+         </children>
+      </HBox>
+        <TextField fx:id="url" prefHeight="38.0" promptText="Enter URL" styleClass="url-field" HBox.hgrow="ALWAYS" />
+      <Button fx:id="ent" minWidth="42.0" onAction="#enterurl" prefHeight="38.0" styleClass="nav-button" text="Go" />
+        <Button fx:id="r" onAction="#reload" prefHeight="38.0" styleClass="action-button" text="Reload" />
+        <Button fx:id="gtg" onAction="#gtg" prefHeight="38.0" styleClass="action-button" text="Google" />
+      <Button fx:id="newtab" mnemonicParsing="false" onAction="#newtab" prefHeight="38.0" text="New Tab" />
+    </HBox>
+   <ToolBar prefHeight="1.0" prefWidth="708.0" fx:id="bookmarks"/>
+   <TabPane fx:id="tabPane" prefHeight="672.0" prefWidth="708.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+     <tabs>
+       <Tab fx:id="initialTab" text="Welcome">
+            <content>
+               <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                     <WebView fx:id="webView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  </children>
+               </AnchorPane>
+            </content>
+            <graphic>
+               <Button fx:id="CLOSE" mnemonicParsing="false" onAction="#close" text="X" />
+            </graphic>
+         </Tab>
+     </tabs>
+   </TabPane>
+</VBox>
